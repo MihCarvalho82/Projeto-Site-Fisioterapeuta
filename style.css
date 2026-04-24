@@ -57,3 +57,58 @@ main img {
     display: block;     /* Remove espaços vazios estranhos embaixo da foto */
     margin: 0 auto;     /* Centraliza se ela ficar sozinha na linha */
 }
+
+.botao-agendar {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 35px;
+    background-color: var(--ciano-logo);
+    color: var(--marrom-texto);
+    text-decoration: none;
+    font font-weight: bold;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease; /* Suaviza a transição para o hover */
+}
+
+.botao-agendar:hover {
+    transform: translate(-3px); /*Move o botão levemente para cima a esquerda quando o mouse passa por cima*/
+    box-shadow: 0 6px 20px rgba(0, 255, 255, 0.3); /*Aumenta o brilho do botão*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Quando a tela for menor que 768px (Celulares) */
+@media (max-width: 768px) {
+    .secao-principal {
+        flex-direction: column; /* Empilha texto e imagem */
+        text-align: center;     /* Centraliza o texto no celular */
+        padding: 40px 20px;
+    }
+
+    .botao-agendar {
+        width: 100%; /* No celular, botões largos são melhores para o polegar */
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+    }
+}
