@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+/* O ROOT é onde guardamos as cores oficiais do projeto */
+:root {
+    --bege-fundo: #F5F5DC;    /* O tom pastel que você pediu */
+    --marrom-texto: #4B3621;  /* Um marrom escuro para boa leitura */
+    --ciano-logo: #00FFFF;    /* O azul vibrante da logo */
+}
+
+/* O RESET limpa as configurações padrão do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Aplicação das cores no corpo do site */
+body {
+    background-color: var(--bege-fundo);
+    color: var(--marrom-texto);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.texto-hero h1 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--marrom-texto);
+}
+
+.texto-hero p {
+    font-size: 1.2em;
+    line-height: 1.6em;
+    /* Removi o 'margin-auto' para não centralizar sozinho*/
+    margin-bottom: 30px;
+}
+
+.secao-principal {
+    display: flex;
+    align-items: ;
+  }
