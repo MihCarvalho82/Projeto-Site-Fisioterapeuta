@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-/* 1. VARIÁVEIS DE COR */
 :root {
     --branco-puro: #FFFFFF;
     --gelo-fundo: #F8FAFC;
@@ -9,7 +8,6 @@
     --cinza-suave: #64748B;
 }
 
-/* 2. RESET E GERAL */
 * {
     margin: 0;
     padding: 0;
@@ -21,57 +19,66 @@ body {
     color: var(--cinza-suave);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* 3. HEADER (LOGO) */
+/* 3. HEADER - CENTRALIZADO E TRAVADO */
 header {
     background-color: var(--branco-puro);
-    padding: 30px 10%; /* Aumentei o padding para dar mais respiro */
+    padding: 20px 0;
     text-align: center;
     border-bottom: 1px solid #f1f5f9;
-    display: flex;         /* Adicionado para garantir centralização */
-    justify-content: center; /* Centraliza horizontalmente */
+    width: 100%;
 }
 
 header img.logo {
-    width: 250px;       /* Força o tamanho que você deseja */
-    height: auto;       /* Mantém a proporção */
-    border-radius: 0;
-    box-shadow: none;
-    display: block;     /* Garante que se comporte como bloco */
-    margin: 0 auto;     /* Reforça a centralização */
+    width: 300px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
-/* 4. SEÇÃO HERO (COM FONTES FLUÍDAS) */
+/* 4. SEÇÃO HERO - O SEGREDO DO MONITOR GRANDE */
 .secao-hero {
     text-align: center;
-    padding: 10 px 15%;
+    padding: 20px 20px 80px 20px; /* Padding fixo para não esticar no Alienware */
     background-color: var(--branco-puro);
+    max-width: 1200px; 
+    margin: 0 auto;    /* Centraliza a seção inteira */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.texto-hero {
+    max-width: 900px; 
 }
 
 .texto-hero h1 {
-    /* O texto cresce conforme a tela aumenta: min 2rem, ideal 5vw, max 4.5rem */
-    font-size: clamp(2rem, 5vw, 4.5rem); 
+    font-size: clamp(2.5rem, 5vw, 4.5rem); 
     font-style: italic;
     color: var(--azul-escuro);
+    margin-top: 10px; /* Mantém perto da logo */
     margin-bottom: 20px;
-
+    line-height: 1.1;
 }
 
 .texto-hero p {
     font-size: clamp(1.1rem, 1.5vw, 1.4rem);
     max-width: 800px;
     margin: 0 auto 40px;
-    padding: 20px;
 }
 
-/* 5. ESTRUTURA FLEXÍVEL (O ZIG-ZAG) */
+.secao-hero .botao-agendar {
+    margin-top: 40px;
+}
+
+/* 5. ESTRUTURA FLEXÍVEL (ZIG-ZAG) */
 .container-flex {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 60px;
-    flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -80,38 +87,28 @@ header img.logo {
     flex-direction: row-reverse !important;
 }
 
-.texto-box, .imagem-sobre, .imagem-box {
+/* 6. COLUNAS */
+.texto-box, .imagem-col {
     flex: 1;
-    min-width: 320px;
+    min-width: 45%;
 }
 
-/* 6. SEÇÕES DE CONTEÚDO */
-.secao-atendimento {
-    padding: 100px 10%;
-    background-color: var(--gelo-fundo);
-}
-
-.secao-sobre {
-    padding: 100px 10%;
-    background-color: var(--branco-puro);
-}
+.secao-atendimento { padding: 100px 10%; background-color: var(--gelo-fundo); }
+.secao-sobre { padding: 100px 10%; background-color: var(--branco-puro); }
 
 .texto-box h2 {
     color: var(--azul-escuro);
-    /* Título das seções também fluído */
     font-size: clamp(1.8rem, 3.5vw, 3rem);
     margin-bottom: 20px;
 }
 
-/* 7. IMAGENS PADRONIZADAS */
+/* 7. IMAGENS */
 .container-flex img {
     width: 100%;
-    max-width: 500px;
-    height: 450px; 
+    max-width: 550px;
+    height: 500px; 
     object-fit: cover; 
     border-radius: 20px;
-    display: block;
-    margin: 0 auto;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
@@ -119,25 +116,28 @@ header img.logo {
 .lista-diferenciais {
     list-style: none;
     margin-top: 25px;
+    padding: 0;
 }
 
 .lista-diferenciais li {
-    margin-bottom: 12px;
+    margin-bottom: 15px;
     color: var(--azul-escuro);
     font-weight: 500;
     display: flex;
     align-items: center;
+    font-size: 1.1rem;
 }
 
 .lista-diferenciais i {
-    color: var(--azul-destaque);
-    margin-right: 12px;
+    color: var(--azul-destaque) !important;
+    margin-right: 15px;
+    font-size: 1.2rem;
 }
 
-/* 9. BOTÃO CTA */
+/* 9. BOTÃO */
 .botao-agendar {
     display: inline-block;
-    padding: 16px 40px;
+    padding: 18px 50px;
     background-color: var(--azul-destaque);
     color: var(--branco-puro);
     text-decoration: none;
@@ -146,42 +146,40 @@ header img.logo {
     text-transform: uppercase;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+    cursor: pointer;
 }
 
 .botao-agendar:hover {
-    transform: translateY(-3px);
     background-color: #0284c7;
+    transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(14, 165, 233, 0.5);
 }
 
-/* 10. RESPONSIVIDADE (CELULAR) */
-@media (max-width: 768px) {
+.botao-agendar:active {
+    transform: translateY(1px);
+}
+
+/* FOOTER */
+footer {
+    padding: 40px 10%;
+    text-align: center;
+    background-color: var(--branco-puro);
+    border-top: 1px solid #f1f5f9;
+    color: var(--cinza-suave);
+    font-size: 0.9rem;
+}
+
+/* 10. MOBILE */
+@media (max-width: 900px) {
     .container-flex, .container-flex.reverse {
         flex-direction: column !important;
         text-align: center;
-        gap: 30px;
     }
-
-    .container-flex img { height: 350px; }
-    
-    .lista-diferenciais li {
-        justify-content: center;
-    }
+    .container-flex img { height: 350px; margin: 0 auto; }
 }
 
-/* 11. ADAPTATIVO PARA TELAS GRANDES (27" Dell Alienware) */
+/* 11. MONITOR 27" - AJUSTE DE SEGURANÇA */
 @media (min-width: 1800px) {
-    .container-flex {
-        max-width: 1600px; /* Expande o site */
-        gap: 120px; /* Mais espaço entre texto e imagem */
-    }
-
-    .container-flex img {
-        height: 600px; /* Foto maior para monitor grande */
-        max-width: 700px;
-    }
-
-    .secao-hero, .secao-atendimento, .secao-sobre {
-        padding: 150px 10%; /* Mais respiro vertical */
-    }
+    .container-flex { max-width: 1400px; gap: 80px; }
+    .container-flex img { height: 600px; max-width: 700px; }
 }
