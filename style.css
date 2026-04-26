@@ -1,114 +1,187 @@
 @charset "UTF-8";
 
-/* O ROOT é onde guardamos as cores oficiais do projeto */
+/* 1. VARIÁVEIS DE COR */
 :root {
-    --bege-fundo: #F5F5DC;    /* O tom pastel que você pediu */
-    --marrom-texto: #4B3621;  /* Um marrom escuro para boa leitura */
-    --ciano-logo: #00FFFF;    /* O azul vibrante da logo */
+    --branco-puro: #FFFFFF;
+    --gelo-fundo: #F8FAFC;
+    --azul-escuro: #1E293B;
+    --azul-destaque: #0EA5E9;
+    --cinza-suave: #64748B;
 }
 
-/* O RESET limpa as configurações padrão do navegador */
+/* 2. RESET E GERAL */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-header {
-    background-color: var(--bege-fundo);
-    padding: 20px 10%;
-    text-align: center;
+body {
+    background-color: var(--branco-puro);
+    color: var(--cinza-suave);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
 }
 
-/* Aplicação das cores no corpo do site */
-body {
-    background-color: var(--bege-fundo);
-    color: var(--marrom-texto);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* 3. HEADER (LOGO) */
+header {
+    background-color: var(--branco-puro);
+    padding: 30px 10%; /* Aumentei o padding para dar mais respiro */
+    text-align: center;
+    border-bottom: 1px solid #f1f5f9;
+    display: flex;         /* Adicionado para garantir centralização */
+    justify-content: center; /* Centraliza horizontalmente */
+}
+
+header img.logo {
+    width: 250px;       /* Força o tamanho que você deseja */
+    height: auto;       /* Mantém a proporção */
+    border-radius: 0;
+    box-shadow: none;
+    display: block;     /* Garante que se comporte como bloco */
+    margin: 0 auto;     /* Reforça a centralização */
+}
+
+/* 4. SEÇÃO HERO (COM FONTES FLUÍDAS) */
+.secao-hero {
+    text-align: center;
+    padding: 10 px 15%;
+    background-color: var(--branco-puro);
 }
 
 .texto-hero h1 {
-    font-size: 2.5em;
+    /* O texto cresce conforme a tela aumenta: min 2rem, ideal 5vw, max 4.5rem */
+    font-size: clamp(2rem, 5vw, 4.5rem); 
     font-style: italic;
-    text-align: center;
+    color: var(--azul-escuro);
     margin-bottom: 20px;
-    color: var(--marrom-texto);
+
 }
 
 .texto-hero p {
-    font-size: 1.2em;
-    line-height: 1.6em;
-    /* Removi o 'margin-auto' para não centralizar sozinho*/
-    margin-bottom: 30px;
+    font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+    max-width: 800px;
+    margin: 0 auto 40px;
+    padding: 20px;
 }
 
-.secao-principal {
+/* 5. ESTRUTURA FLEXÍVEL (O ZIG-ZAG) */
+.container-flex {
     display: flex;
-    flex-wrap: wrap; /* Esta linha permite que os itens pulem para baixo 🔄 */
     align-items: center;
     justify-content: center;
-    gap: 50px;
-    padding: 60px 10%;
+    gap: 60px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-main img {
-    max-width: 100%;    /* Garante que ela nunca ultrapasse a tela 📱 */
-    height: auto;       /* Mantém a proporção para não achatar a foto 📐 */
-    display: block;     /* Remove espaços vazios estranhos embaixo da foto */
-    margin: 0 auto;     /* Centraliza se ela ficar sozinha na linha */
+.container-flex.reverse {
+    flex-direction: row-reverse !important;
 }
 
+.texto-box, .imagem-sobre, .imagem-box {
+    flex: 1;
+    min-width: 320px;
+}
+
+/* 6. SEÇÕES DE CONTEÚDO */
+.secao-atendimento {
+    padding: 100px 10%;
+    background-color: var(--gelo-fundo);
+}
+
+.secao-sobre {
+    padding: 100px 10%;
+    background-color: var(--branco-puro);
+}
+
+.texto-box h2 {
+    color: var(--azul-escuro);
+    /* Título das seções também fluído */
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    margin-bottom: 20px;
+}
+
+/* 7. IMAGENS PADRONIZADAS */
+.container-flex img {
+    width: 100%;
+    max-width: 500px;
+    height: 450px; 
+    object-fit: cover; 
+    border-radius: 20px;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* 8. LISTA DE DIFERENCIAIS */
+.lista-diferenciais {
+    list-style: none;
+    margin-top: 25px;
+}
+
+.lista-diferenciais li {
+    margin-bottom: 12px;
+    color: var(--azul-escuro);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.lista-diferenciais i {
+    color: var(--azul-destaque);
+    margin-right: 12px;
+}
+
+/* 9. BOTÃO CTA */
 .botao-agendar {
     display: inline-block;
-    margin-top: 30px;
-    padding: 15px 35px;
-    background-color: var(--ciano-logo);
-    color: var(--marrom-texto);
+    padding: 16px 40px;
+    background-color: var(--azul-destaque);
+    color: var(--branco-puro);
     text-decoration: none;
-    font font-weight: bold;
+    font-weight: bold;
     border-radius: 50px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease; /* Suaviza a transição para o hover */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
 }
 
 .botao-agendar:hover {
-    transform: translate(-3px); /*Move o botão levemente para cima a esquerda quando o mouse passa por cima*/
-    box-shadow: 0 6px 20px rgba(0, 255, 255, 0.3); /*Aumenta o brilho do botão*/
+    transform: translateY(-3px);
+    background-color: #0284c7;
+    box-shadow: 0 8px 25px rgba(14, 165, 233, 0.5);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Quando a tela for menor que 768px (Celulares) */
+/* 10. RESPONSIVIDADE (CELULAR) */
 @media (max-width: 768px) {
-    .secao-principal {
-        flex-direction: column; /* Empilha texto e imagem */
-        text-align: center;     /* Centraliza o texto no celular */
-        padding: 40px 20px;
+    .container-flex, .container-flex.reverse {
+        flex-direction: column !important;
+        text-align: center;
+        gap: 30px;
     }
 
-    .botao-agendar {
-        width: 100%; /* No celular, botões largos são melhores para o polegar */
+    .container-flex img { height: 350px; }
+    
+    .lista-diferenciais li {
+        justify-content: center;
+    }
+}
+
+/* 11. ADAPTATIVO PARA TELAS GRANDES (27" Dell Alienware) */
+@media (min-width: 1800px) {
+    .container-flex {
+        max-width: 1600px; /* Expande o site */
+        gap: 120px; /* Mais espaço entre texto e imagem */
     }
 
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 20px;
+    .container-flex img {
+        height: 600px; /* Foto maior para monitor grande */
+        max-width: 700px;
+    }
+
+    .secao-hero, .secao-atendimento, .secao-sobre {
+        padding: 150px 10%; /* Mais respiro vertical */
     }
 }
